@@ -55,7 +55,7 @@ NUMB	([0-9]+)|([0-9]*\.[0-9]+)
 ">="				{ yylval = 6; return COMPARISON; }
 "<"					{ yylval = 1; return COMPARISON; }
 "<="				{ yylval = 5; return COMPARISON; }
-"="					|
+"!="					|
 "<>"				{ yylval = 3; return COMPARISON; }
  
 
