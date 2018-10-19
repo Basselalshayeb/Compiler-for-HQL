@@ -41,9 +41,46 @@ NUMB	([0-9]+)|([0-9]*\.[0-9]+)
 "procedure"			{ return PROCEDURE; }
 "unique"			{ return UNIQUE; }
 "not"				{ return NOT; }
-"!"					{ return NOT; }
+"default"			{ return DEFAULT; }
+"delete"			{ return DELETE; }
+"desc"				{ return DESC; }
+"distinct"			{ return DISTINCT; }
+"drop"				{ return DROP; }	
+"exec" 				{ return EXEC; }
+"exists"			{ return EXISTS; }
+"foreign"			{ return FOREIGN; }
+"key"				{ return KEY; }
+"from"				{ return FROM; }
+"group"				{ return GROUP; }
+"by" 				{ return BY; }
+"having"			{ return HAVING; }	
+"in" 				{ return IN; }
+"inner"				{ return INNER; }
+"join" 				{ return JOIN; }	
+"insert"			{ return INSERT; }
+"into"				{ return INTO; }
+"select"			{ return SELECT; }	
+"is"				{ return IS; }
+"null"				{ return NILL; }
+"left"				{ return LEFT; }
+"like"				{ return LIKE; }	
+"limit"				{ return LIMIT; }	
+"only"				{ return ONLY; }  
+"order"				{ return ORDER; }	
+"outer"				{ return OUTER; }	
+"primary"			{ return PRIMARY; }	
+"right"				{ return RIGHT; }	
+"top"				{ return TOP; }	
+"set"				{ return SET; }	
+"truncate"			{ return TRUNCATE; }	
+"union"				{ return UNION; }
+"update"			{ return UPDATE; }
+"values"			{ return VALUES; }
+"where"				{ return WHERE; }
 
 			/* Operators */
+
+"!"					{ return NOT; }
 [-+&~|^/%*(),.;]	{ return yytext[0]; }
 
 "&&"				{ return ANDOP; }
