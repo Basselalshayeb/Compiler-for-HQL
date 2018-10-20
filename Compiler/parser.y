@@ -71,7 +71,6 @@
 %token LIMIT
 %token ONLY
 %token ORDER
-%token BY
 %token OUTER
 %token PRIMARY
 %token RIGHT
@@ -100,7 +99,6 @@
 %token UNIONTYPE
 %token SHOW
 %token TABLES
-%token SET
 %token USE
 %token ROW
 %token FIELDS
@@ -109,12 +107,31 @@
 %token INPATH
 %token STORED
 %token DESCRIBE
-%token DEFAULT
 %token IF
 %token COMMENT
 %token WITH
 %token LOCAL
-%token QUTE
+%token OPENBRACKET
+%token CLOSEBRACKET
+%token TRUE
+%token FALSE
+%token MANAGED
+%token EXTERNAL
+%token EXTENDED
+%token FORMATTED
+%token FULL
+%token SEMI
+%token CARTISIAN
+%token PRODUCT
+%token SIDE
+%token SORT
+%token DISTRIBUTED
+%token CLUSTER
+%token CAST
+%token EXPLAIN
+%token DIV
+%token RLIKE
+%token DOT
 
 %left COMPARISON /* = <> < > <= >= <=> */
 
@@ -153,6 +170,13 @@ exp: ADD			 { cout<<"ADD"<<endl; }
 
 
 exp: COMPARISON		{ cout<<"COMPARISON"<<$1<<endl; }
+   | OPENBRACKET	{ cout<<"["<<endl; }
+   | CLOSEBRACKET	{ cout<<"]"<<endl; }
+   | TRUE			{ cout<<"true"<<endl; }
+   | FALSE			{ cout<<"false"<<endl; }
+   | RLIKE			{ cout<<"rlike"<<endl; }
+   | DIV			{ cout<<"DIV"<<endl;}
+   | DOT			{ cout<<"DOT"<<endl;}
    ;
 
 
@@ -191,6 +215,20 @@ exp: DELETE			{ cout<<"DELETE"<<endl; }
    | UPDATE			{ cout<<"UPDATE"<<endl; }
    | VALUES			{ cout<<"VALUES"<<endl; }
    | WHERE			{ cout<<"WHERE"<<endl; }
+   | MANAGED		{ cout<<"MANAGED"<<endl; }
+   | EXTERNAL		{ cout<<"EXTERNAL"<<endl; }
+   | EXTENDED		{ cout<<"EXTENDED"<<endl; }
+   | FORMATTED		{ cout<<"FORMATTED"<<endl; }
+   | FULL			{ cout<<"FULL"<<endl; }
+   | SEMI			{ cout<<"SEMI"<<endl; }
+   | CARTISIAN		{ cout<<"CARTISIAN"<<endl; }
+   | PRODUCT		{ cout<<"PRODUCT"<<endl; }
+   | SIDE			{ cout<<"SIDE"<<endl; }
+   | SORT			{ cout<<"SORT"<<endl; }
+   | DISTRIBUTED    { cout<<"DISTRIBUTED"<<endl; }
+   | CLUSTER		{ cout<<"CLUSTER"<<endl; }
+   | CAST			{ cout<<"CAST"<<endl; }
+   | EXPLAIN		{ cout<<"EXPLAIN"<<endl; }
    ;
 
 
@@ -212,7 +250,6 @@ exp: TINYINT		{ cout<<"TINYINT"<<endl; }
    | UNIONTYPE		{ cout<<"UNIONTYPE"<<endl; }
    | SHOW			{ cout<<"SHOW"<<endl; }
    | TABLES			{ cout<<"TABLES"<<endl; }
-   | SET			{ cout<<"SET"<<endl; }
    | USE			{ cout<<"USE"<<endl; }
    | ROW			{ cout<<"ROW"<<endl; }
    | FIELDS			{ cout<<"FIELDS"<<endl; }
@@ -221,12 +258,10 @@ exp: TINYINT		{ cout<<"TINYINT"<<endl; }
    | INPATH			{ cout<<"INPATH"<<endl; }
    | STORED			{ cout<<"STORED"<<endl; }
    | DESCRIBE		{ cout<<"DESCRIBE"<<endl; }
-   | DEFAULT		{ cout<<"DEFAULT"<<endl; }
    | IF				{ cout<<"IF"<<endl; }
    | COMMENT		{ cout<<"COMMENT"<<endl; }
    | WITH			{ cout<<"WITH"<<endl; }
    | LOCAL			{ cout<<"LOCAL"<<endl; }
-   | QUTE			{ cout<<"QUTE"<<endl; }
    ;
 
 

@@ -77,7 +77,22 @@ NUMB	([0-9]+)|([0-9]*\.[0-9]+)
 "update"			{ return UPDATE; }
 "values"			{ return VALUES; }
 "where"				{ return WHERE; }
+			/* Hql function */
 
+"managed"			{ return MANAGED;}
+"external"			{ return EXTERNAL;}
+"extended"			{ return EXTENDED;}
+"formatted"			{ return FORMATTED;}
+"full"				{ return FULL;}
+"semi"				{ return SEMI;}
+"cartisian"			{ return CARTISIAN;}
+"product"			{ return PRODUCT;}
+"side"				{ return SIDE;}
+"sort"				{ return SORT;}
+"distributed"		{ return DISTRIBUTED;}
+"cluster"			{ return CLUSTER;}
+"cast"				{ return CAST;}
+"explain"			{ return EXPLAIN;}
 			/* Data Types */
 "tinyint"			{ return TINYINT; }
 "smallint"			{ return SMALLINT; }
@@ -99,7 +114,6 @@ NUMB	([0-9]+)|([0-9]*\.[0-9]+)
 			/* HiveQL Commands */
 "show"				{ return SHOW; }
 "tables"			{ return TABLES; }
-"set"				{ return SET; }
 "use"				{ return USE; }
 "row"				{ return ROW; }
 "fields"			{ return FIELDS; }
@@ -108,32 +122,36 @@ NUMB	([0-9]+)|([0-9]*\.[0-9]+)
 "inpath"			{ return INPATH; }
 "stored"			{ return STORED; }
 "describe"			{ return DESCRIBE; }
-"default"			{ return DEFAULT; }
 "if"				{ return IF; }
 "comment"			{ return COMMENT; }
 "with"				{ return WITH; }
 "local"				{ return LOCAL; }
-"quit"				{ return QUTE; }
-
+			
 			/* Operators */
-
+"regexp"			|
+"rlike"				{ return RLIKE; }
+"true"				{ return TRUE; }
+"false"				{ return FALSE; }
+"["					{ return OPENBRACKET; }
+"]"					{ return CLOSEBRACKET; }
 "!"					{ return NOT; }
 [-+&~|^/%*(),.;]	{ return yytext[0]; }
+"DIV"				{ return DIV; }
+
 
 "&&"				{ return ANDOP; }
 "||"				{ return OR; }
 
+"=="				|
 "="				    { yylval = 4; return COMPARISON; } /* =4 <=>12 >2 >=6 <1 <= <>*/
 "<=>"				{ yylval = 12; return COMPARISON; }
 ">"					{ yylval = 2; return COMPARISON; }
 ">="				{ yylval = 6; return COMPARISON; }
 "<"					{ yylval = 1; return COMPARISON; }
 "<="				{ yylval = 5; return COMPARISON; }
-"!="					|
+"!="				|
 "<>"				{ yylval = 3; return COMPARISON; }
  
-
-
 {NUMB}			{ yylval = atof(yytext); return NUM; }
 [\n]			{ return '\n'; }
 [ \t]			{ /* empty */ }
