@@ -82,6 +82,39 @@
 %token UPDATE
 %token VALUES
 %token WHERE
+%token TINYINT
+%token SMALLINT
+%token INT
+%token BIGINT
+%token FLOAT
+%token DOUBLE
+%token DECIMAL
+%token STRING
+%token VARCHAR
+%token CHAR
+%token DATE
+%token TIMESTAMP
+%token ARRAY
+%token MAP
+%token STRUCT
+%token UNIONTYPE
+%token SHOW
+%token TABLES
+%token SET
+%token USE
+%token ROW
+%token FIELDS
+%token LOAD
+%token DATA
+%token INPATH
+%token STORED
+%token DESCRIBE
+%token DEFAULT
+%token IF
+%token COMMENT
+%token WITH
+%token LOCAL
+%token QUTE
 
 %left COMPARISON /* = <> < > <= >= <=> */
 
@@ -159,5 +192,43 @@ exp: DELETE			{ cout<<"DELETE"<<endl; }
    | VALUES			{ cout<<"VALUES"<<endl; }
    | WHERE			{ cout<<"WHERE"<<endl; }
    ;
+
+
+exp: TINYINT		{ cout<<"TINYINT"<<endl; }
+   | SMALLINT		{ cout<<"SMALLINT"<<endl; }
+   | INT			{ cout<<"INT"<<endl; }
+   | BIGINT			{ cout<<"BIGINT"<<endl; }
+   | FLOAT			{ cout<<"FLOAT"<<endl; }
+   | DOUBLE			{ cout<<"DOUBLE"<<endl; }
+   | DECIMAL		{ cout<<"DECIMAL"<<endl; }
+   | STRING			{ cout<<"STRING"<<endl; }
+   | VARCHAR		{ cout<<"VARCHAR"<<endl; }
+   | CHAR			{ cout<<"CHAR"<<endl; }
+   | DATE			{ cout<<"DATE"<<endl; }
+   | TIMESTAMP		{ cout<<"TIMESTAMP"<<endl; }
+   | ARRAY			{ cout<<"ARRAY"<<endl; }
+   | MAP			{ cout<<"MAP"<<endl; }
+   | STRUCT			{ cout<<"STRUCT"<<endl; }
+   | UNIONTYPE		{ cout<<"UNIONTYPE"<<endl; }
+   | SHOW			{ cout<<"SHOW"<<endl; }
+   | TABLES			{ cout<<"TABLES"<<endl; }
+   | SET			{ cout<<"SET"<<endl; }
+   | USE			{ cout<<"USE"<<endl; }
+   | ROW			{ cout<<"ROW"<<endl; }
+   | FIELDS			{ cout<<"FIELDS"<<endl; }
+   | LOAD			{ cout<<"LOAD"<<endl; }
+   | DATA			{ cout<<"DATA"<<endl; }
+   | INPATH			{ cout<<"INPATH"<<endl; }
+   | STORED			{ cout<<"STORED"<<endl; }
+   | DESCRIBE		{ cout<<"DESCRIBE"<<endl; }
+   | DEFAULT		{ cout<<"DEFAULT"<<endl; }
+   | IF				{ cout<<"IF"<<endl; }
+   | COMMENT		{ cout<<"COMMENT"<<endl; }
+   | WITH			{ cout<<"WITH"<<endl; }
+   | LOCAL			{ cout<<"LOCAL"<<endl; }
+   | QUTE			{ cout<<"QUTE"<<endl; }
+   ;
+
+
 
 %%

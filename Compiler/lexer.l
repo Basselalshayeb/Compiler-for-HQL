@@ -78,6 +78,43 @@ NUMB	([0-9]+)|([0-9]*\.[0-9]+)
 "values"			{ return VALUES; }
 "where"				{ return WHERE; }
 
+			/* Data Types */
+"tinyint"			{ return TINYINT; }
+"smallint"			{ return SMALLINT; }
+"INT"				{ return INT; }
+"bigint"			{ return BIGINT; }
+"float"				{ return FLOAT; }
+"double"			{ return DOUBLE; }
+"DECIMAL"			{ return DECIMAL; }
+"string"			{ return STRING; }
+"varchar"			{ return VARCHAR; }
+"char"				{ return CHAR; }
+"date"				{ return DATE; }
+"timestamp"			{ return TIMESTAMP; }
+"array"				{ return ARRAY; }
+"map"				{ return MAP; }
+"struct"			{ return STRUCT; }
+"uniontype"			{ return UNIONTYPE; }
+
+			/* HiveQL Commands */
+"show"				{ return SHOW; }
+"tables"			{ return TABLES; }
+"set"				{ return SET; }
+"use"				{ return USE; }
+"row"				{ return ROW; }
+"fields"			{ return FIELDS; }
+"load"				{ return LOAD; }
+"data"				{ return DATA; }
+"inpath"			{ return INPATH; }
+"stored"			{ return STORED; }
+"describe"			{ return DESCRIBE; }
+"default"			{ return DEFAULT; }
+"if"				{ return IF; }
+"comment"			{ return COMMENT; }
+"with"				{ return WITH; }
+"local"				{ return LOCAL; }
+"quit"				{ return QUTE; }
+
 			/* Operators */
 
 "!"					{ return NOT; }
